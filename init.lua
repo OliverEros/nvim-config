@@ -32,6 +32,15 @@ require("lazy").setup({
         "theHamsta/nvim-dap-virtual-text",
     },
   },
+  {
+    "williamboman/mason.nvim",
+    opts = {
+      ensure_installed = {
+        "typescript-language-server",
+        "prettierd", 
+      },
+    },
+  },
   { import = "plugins" },
 }, lazy_config)
 
@@ -42,6 +51,8 @@ dofile(vim.g.base46_cache .. "statusline")
 
 require "options"
 require "autocmds"
+require "configs.code-folding"
+require "configs.diagnostics"
 
 vim.schedule(function()
   require "mappings"
